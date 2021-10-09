@@ -3,6 +3,11 @@ Programmatic Blender Render
 
 This project shows how to use python scripts to automate the manual steps of creating an animation. For example, we can create parameterized scripts that control aspects of the animation that enable you to generate multiple variants of renders quickly circumventing the normal manual workflow using blender's GUI.
 
+**Script Output**:
+
+[![Blender animation](https://img.youtube.com/vi/orCrpGGHD2o/0.jpg)](https://youtu.be/orCrpGGHD2o)
+
+
 **Credit**:
 
 - Both the animation and the Python code was inspired by [Olav3D Tutorials](https://www.youtube.com/watch?v=KI0tjZUkb5A)
@@ -14,6 +19,7 @@ This project shows how to use python scripts to automate the manual steps of cre
 
 **STEP 1:** Create `.blend` file from python script:
 ```shell
+mkdir -p output
 blender -b -P blender_cubes.py -- output/blender_cubes.blend
 ```
 Note that the last argument above is passed in to the Python script where it specifies the output file name (yes, it's important to include whitespace around the double-dash).
@@ -21,7 +27,7 @@ Note that the last argument above is passed in to the Python script where it spe
 **STEP 2:** Create image sequence by rendering`.blend` file.
  while passing in 
 ```shell
-blender -b blender_cubes.blend -E CYCLES -s 1 -e 250 -o output/image_sequence/img_ -F PNG -P gpu_settings.py -a
+blender -b output/blender_cubes.blend -E CYCLES -s 1 -e 250 -o output/image_sequence/img_ -F PNG -P gpu_settings.py -a
 ```
 The render settings can be passed in separate python scripts:
 
@@ -32,7 +38,7 @@ The render settings can be passed in separate python scripts:
 
 **STEP 3:** Create animation from image sequence:
 ```shell
-blender -b -F AVIJPEG -o output/video/blender_cubes.avi -P images_to_video_test.py
+blender -b -F AVIJPEG -o output/blender_cubes.avi -P images_to_video.py
 ```
 
 ### Command-line Arguments
@@ -59,8 +65,8 @@ docker run --gpus all -v `pwd`/output:/app/output -it $USER/blender-2.93-gpu bas
 From within Docker container:
 ```shell
 blender -b -P blender_cubes.py -- output/blender_cubes.blend
-blender -b ./output/blender_cubes.blend -E CYCLES -s 0 -e 250 -o output/image_sequence/img_ -F PNG -P gpu_settings.py -a
-blender -b -F FFMPEG -o output/video/blender_cubes.mpg -P images_to_video.py
+blender -b output/blender_cubes.blend -E CYCLES -s 0 -e 250 -o output/image_sequence/img_ -F PNG -P gpu_settings.py -a
+blender -b -F FFMPEG -o output/blender_cubes.mpg -P images_to_video.py
 ```
 
 
