@@ -46,7 +46,8 @@ RUN rm -rf ${BLENDER_PATH}/python/lib/python3.9/site-packages/numpy
 # Must first ensurepip to install Blender pip3 and then new numpy
 RUN ${BLENDERPY} -m ensurepip && ${BLENDERPIP} install --upgrade pip && ${BLENDERPIP} install numpy
 
-RUN mkdir -p /app
+RUN mkdir /app
+RUN mkdir /app/output
 
 COPY ./*.py app/
 
