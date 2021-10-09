@@ -1,4 +1,4 @@
-"""Script created a .blend file with a baked animation that can be executed 
+"""Script creates a .blend file with a baked animation that can be executed 
 from the command line.
 
 Note that the bpy module is not a standalone Python module, but is only 
