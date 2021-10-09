@@ -1,3 +1,5 @@
+# Dockerfile adapted from https://github.com/nytimes/rd-blender-docker/blob/master/dist/2.93-cpu-ubuntu18.04/Dockerfile
+
 FROM ubuntu:18.04
 
 # Enviorment variables

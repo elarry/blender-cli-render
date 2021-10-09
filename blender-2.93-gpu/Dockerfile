@@ -1,3 +1,5 @@
+# Dockerfile adapted from https://github.com/nytimes/rd-blender-docker/blob/master/dist/2.93-gpu-ubuntu18.04/Dockerfile
+
 FROM nvidia/cudagl:10.1-base-ubuntu18.04
 
 # Enviorment variables
