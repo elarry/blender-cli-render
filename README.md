@@ -3,15 +3,9 @@ Programmatic Blender Render
 
 This project shows how to use python scripts to automate the manual steps of creating an animation. For example, we can create parameterized scripts that control aspects of the animation that enable you to generate multiple variants of renders quickly circumventing the normal manual workflow using blender's GUI.
 
-**Script Output**:
+**Script Output**: Click preview image to play animation.
 
 [![Blender animation](https://img.youtube.com/vi/orCrpGGHD2o/0.jpg)](https://youtu.be/orCrpGGHD2o)
-
-
-**Credit**:
-
-- Both the animation and the Python code was inspired by [Olav3D Tutorials](https://www.youtube.com/watch?v=KI0tjZUkb5A)
-- Dockerfiles are from: https://github.com/nytimes/rd-blender-docker
 
 
 ## Rendering Animation from the Command-line
@@ -54,6 +48,7 @@ blender -b -F AVIJPEG -o output/blender_cubes.avi -P images_to_video.py
 For more common Blender CLI arguments, see official documentation at:
 https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html
 
+
 ## Run in Docker Container
 
 Navigate to project root
@@ -87,7 +82,15 @@ blender -b -F FFMPEG -o output/blender_cubes.mpg -P images_to_video.py
     + Include delete commands at the beginning of python script. Otherwise objects might get multiplied with each run of the script.
 
 
-## Links to Other Related Projects
+## Appendix
+
+**Credit**:
+
+- Both the animation and the Python code was inspired by [Olav3D Tutorials](https://www.youtube.com/watch?v=KI0tjZUkb5A)
+- Dockerfiles are from: https://github.com/nytimes/rd-blender-docker
+
+
+**Links to Other Related Projects**:
 
 - https://github.com/yuki-koyama/blender-cli-rendering
 - https://github.com/Vogete/blender-cuda-docker
